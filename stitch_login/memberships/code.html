@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Membership Management | LibTrack</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f3f3",
+              "tertiary-container": "#db322f",
+              "on-secondary-fixed": "#002204",
+              "on-tertiary-fixed": "#410002",
+              "on-tertiary-container": "#fffbff",
+              "inverse-primary": "#a2c9ff",
+              "surface-container": "#eeeeee",
+              "on-primary": "#ffffff",
+              "secondary": "#006e1c",
+              "surface": "#f9f9f9",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "primary-fixed-dim": "#a2c9ff",
+              "on-primary-fixed-variant": "#004881",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#fdfcff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#98f994",
+              "on-secondary-container": "#0c7521",
+              "outline-variant": "#c0c7d4",
+              "background": "#f9f9f9",
+              "on-surface": "#1a1c1c",
+              "on-primary-fixed": "#001c38",
+              "on-surface-variant": "#404752",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#005313",
+              "surface-container-high": "#e8e8e8",
+              "primary": "#005ea4",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#93000d",
+              "primary-container": "#0077ce",
+              "primary-fixed": "#d3e4ff",
+              "on-error": "#ffffff",
+              "surface-tint": "#0060a8",
+              "secondary-fixed-dim": "#7ddc7a",
+              "on-background": "#1a1c1c",
+              "surface-bright": "#f9f9f9",
+              "inverse-on-surface": "#f1f1f1",
+              "outline": "#707783",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "tertiary-fixed": "#ffdad6",
+              "tertiary": "#b7131a",
+              "surface-dim": "#dadada",
+              "secondary-container": "#98f994",
+              "surface-container-highest": "#e2e2e2"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-6 py-4 mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-blue-700 dark:text-blue-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors p-2 rounded-xl active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-manrope font-extrabold text-2xl bg-gradient-to-br from-blue-700 to-blue-500 bg-clip-text text-transparent">LibTrack</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Close up of an administrator profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjq2Ll00xq5VgBEgX6z6CvsoneYA16--UavE2D9y690OjxcX5GL6Kvq2PIrAml8REemJ0-GCWY0G0etlyHDGfkBA6ufEgI-mrPqqnhgBPfK3xBtfUFqgkFj0yQoPuy4aKLAhCB1HUDB4xDyet5ZuEOT26dGkRBEg8bsjQKsyC90cebwoBV-hutLMD93AypFovoebO-sqjE8r8umdNLvW-rzcQYD19iIR7xe79HjMU2QqLNtPfEJLZu39cjIz9uSkfWrt0rJ7Jg3XQ"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-5xl mx-auto">
+<!-- Editorial Header Section -->
+<section class="mb-12">
+<h2 class="font-headline text-[2.5rem] leading-tight font-extrabold text-on-surface tracking-tight mb-2">Membership</h2>
+<p class="text-on-surface-variant font-body text-lg">Curating access and oversight for the Digital Library ecosystem.</p>
+</section>
+<!-- Search & Filter Tonal Bar -->
+<div class="bg-surface-container rounded-xl p-2 flex items-center gap-2 mb-8">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-12 pr-4 py-3 text-body-md focus:ring-2 focus:ring-primary transition-all outline-none" placeholder="Search members by name or ID..." type="text"/>
+</div>
+<button class="bg-surface-container-lowest p-3 rounded-lg text-primary hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+<!-- Membership Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Active Memberships Header -->
+<div class="md:col-span-2 flex items-center justify-between mt-4">
+<h3 class="font-headline text-xl font-bold text-on-surface">Active Plans</h3>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label text-[10px] font-bold uppercase tracking-widest">Live: 124</span>
+</div>
+<!-- Card 1: Active -->
+<div class="bg-surface-container-lowest rounded-xl p-6 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="Student headshot for library membership card" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQLjJWxckQBYROtuRjXp3bB9Ta1wXEu8aKdG6JGp7XAwHW73hsS6zynlCoSDywL-A86Z0ldVIYHfpEeiSzuSRZFfMtEgRM2bMnEdk-ExvHw8DuiX1i3Epm8qRQfMdscMYqmsn6TO1Yl6NlH8ZVHUwVsWIfyKhrNtibftAKiYTsg1fpPDPrwYnt5OiPzllaLpyXYk_xtLbl_jRxxvv5-InCoDEi0xB06GST9aSezrfvysYzV6ur0nTc8X3ABB897ncLduxh8pr9Lr8"/>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Adrian Miller</h4>
+<p class="text-on-surface-variant text-sm font-body">ID: LIB-2024-0089</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label text-[10px] font-bold uppercase tracking-widest">Available</span>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Membership Plan</span>
+<span class="font-semibold text-primary">Academic Pro</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Expires On</span>
+<span class="font-semibold text-on-surface">Oct 14, 2024</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high text-primary font-bold py-3 rounded-lg text-sm hover:bg-primary-fixed transition-all active:scale-95">Extend Plan</button>
+<button class="p-3 bg-surface-container-high text-on-surface-variant rounded-lg hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Active -->
+<div class="bg-surface-container-lowest rounded-xl p-6 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="Student headshot for library membership card" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSr0cw6AtIX9AbsF_fj12XB1B2-zvsxQag1zy7ZOLT3gneNi6SaCZFDneLNdn-fgqEKpTPg9LGNss5v-rHal3mWTyF_206i0Bg64H0WFgk1xJbxxVI-yMHeAuqlAXfUzP50lIWilsV5ctrETGdS3NjCPLZqgzHT8E3EBmTGa6EejctgDrU9g5AAW0PQ9xjxh7v6oB21KC2rFFpGjgy6ZMPkf1bmb1gh6gqPVWo7efmlIRBtIh9J4p9rrm_HO_zg7InYTg8CPIjsNQ"/>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Sarah Chen</h4>
+<p class="text-on-surface-variant text-sm font-body">ID: LIB-2024-1142</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label text-[10px] font-bold uppercase tracking-widest">Available</span>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Membership Plan</span>
+<span class="font-semibold text-primary">Research Fellow</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Expires On</span>
+<span class="font-semibold text-on-surface">Dec 02, 2024</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high text-primary font-bold py-3 rounded-lg text-sm hover:bg-primary-fixed transition-all active:scale-95">Extend Plan</button>
+<button class="p-3 bg-surface-container-high text-on-surface-variant rounded-lg hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Expired Memberships Header -->
+<div class="md:col-span-2 flex items-center justify-between mt-8">
+<h3 class="font-headline text-xl font-bold text-on-surface">Expired Plans</h3>
+<span class="bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full font-label text-[10px] font-bold uppercase tracking-widest">Grace Period: 12</span>
+</div>
+<!-- Card 3: Expired -->
+<div class="bg-surface-container-lowest rounded-xl p-6 relative overflow-hidden group opacity-85 border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center overflow-hidden grayscale">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="Student headshot for library membership card grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6agWKUAK0D_P5AZmD3tezh4WldwR9bFZvbS9HwgqJYycfgzu5k3PNrURCfWlYq3wGSH26QP6yqs-c2X4mFDKPgz52KUccFhmpiEfKs-a63FGU1WKjoyIAJ2Q47hPtOfU4PcNc5DvaccFKAdXnQxbUu9kUhfgYtvdq0IE0YrU2MOfJTa-6HAcB8E2z3LT-_NWr_ezUnOV4w3T3uCg316KEmnHPnfEu3e6rSdiGVVASROn5Kzf8T8CSNsoTibtehVJnEjdxz8tpJ2U"/>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">James Kovic</h4>
+<p class="text-on-surface-variant text-sm font-body">ID: LIB-2023-9901</p>
+</div>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label text-[10px] font-bold uppercase tracking-widest">Overdue</span>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Membership Plan</span>
+<span class="font-semibold text-on-surface">Standard Reader</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Expired On</span>
+<span class="font-semibold text-tertiary">Aug 20, 2024</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-blue-700 to-blue-500 text-on-primary font-bold py-3 rounded-lg text-sm hover:opacity-90 transition-all active:scale-95">Renew Membership</button>
+</div>
+</div>
+<!-- Card 4: Expired -->
+<div class="bg-surface-container-lowest rounded-xl p-6 relative overflow-hidden group opacity-85 border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center overflow-hidden grayscale">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="Student headshot for library membership card grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8uSzzjDKYA-HwPAUZIm5e3zuStuRGSQZKrrpS6s-qQEzNUxal4F9Yf6ycMjoiXrA3KdI5XH-ZtM0e9qk6KbSsOaRRzNZ-vNemYiKRge8AWR6YyZj5aECHmxvLuKgYSAqrdQv5axokIm8eHev2PqxYNKbQ8q5sMldKDo3GNR3QIahgrnoo5Tut-MbxVp7MSrEH1FNKpi-ePtGjENhr8KUAchIHgJvrLuElz3qoW641kC11IHX9Fxgy3EVT52R_nYKeMb12BwRxie8"/>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Maya Williams</h4>
+<p class="text-on-surface-variant text-sm font-body">ID: LIB-2023-8712</p>
+</div>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label text-[10px] font-bold uppercase tracking-widest">Overdue</span>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Membership Plan</span>
+<span class="font-semibold text-on-surface">Standard Reader</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Expired On</span>
+<span class="font-semibold text-tertiary">Sept 05, 2024</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-blue-700 to-blue-500 text-on-primary font-bold py-3 rounded-lg text-sm hover:opacity-90 transition-all active:scale-95">Renew Membership</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-[2rem] px-4 shadow-[0px_4px_20px_rgba(26,28,28,0.06)] no-border">
+<!-- Dashboard Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Dashboard</span>
+</a>
+<!-- Students Tab (Active for Membership Management) -->
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-2xl px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Students</span>
+</a>
+<!-- Attendance Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Attendance</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

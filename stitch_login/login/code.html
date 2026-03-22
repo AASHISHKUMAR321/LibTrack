@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LibTrack — Admin Login</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f3f3",
+              "tertiary-container": "#db322f",
+              "on-secondary-fixed": "#002204",
+              "on-tertiary-fixed": "#410002",
+              "on-tertiary-container": "#fffbff",
+              "inverse-primary": "#a2c9ff",
+              "surface-container": "#eeeeee",
+              "on-primary": "#ffffff",
+              "secondary": "#006e1c",
+              "surface": "#f9f9f9",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "primary-fixed-dim": "#a2c9ff",
+              "on-primary-fixed-variant": "#004881",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#fdfcff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#98f994",
+              "on-secondary-container": "#0c7521",
+              "outline-variant": "#c0c7d4",
+              "background": "#f9f9f9",
+              "on-surface": "#1a1c1c",
+              "on-primary-fixed": "#001c38",
+              "on-surface-variant": "#404752",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#005313",
+              "surface-container-high": "#e8e8e8",
+              "primary": "#005ea4",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#93000d",
+              "primary-container": "#0077ce",
+              "primary-fixed": "#d3e4ff",
+              "on-error": "#ffffff",
+              "surface-tint": "#0060a8",
+              "secondary-fixed-dim": "#7ddc7a",
+              "on-background": "#1a1c1c",
+              "surface-bright": "#f9f9f9",
+              "inverse-on-surface": "#f1f1f1",
+              "outline": "#707783",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "tertiary-fixed": "#ffdad6",
+              "tertiary": "#b7131a",
+              "surface-dim": "#dadada",
+              "secondary-container": "#98f994",
+              "surface-container-highest": "#e2e2e2"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar suppressed for Login per "Destination Rule" -->
+<main class="flex-grow flex items-center justify-center px-6 py-12">
+<div class="w-full max-w-[400px] space-y-12">
+<!-- Branding Header -->
+<div class="text-center space-y-4">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-container mb-2">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="auto_stories">auto_stories</span>
+</div>
+<h1 class="font-headline font-extrabold text-4xl tracking-tight bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent">
+                    LibTrack
+                </h1>
+<p class="text-on-surface-variant font-body text-body-md tracking-wide">
+                    The Digital Curator for Modern Libraries
+                </p>
+</div>
+<!-- Login Form -->
+<div class="bg-surface-container-lowest rounded-xl p-8 space-y-6">
+<div class="space-y-4">
+<!-- Identity Field -->
+<div class="space-y-2">
+<label class="block font-label text-label-md font-bold text-on-surface-variant uppercase tracking-widest px-1" for="identity">
+                            Phone Number / Email
+                        </label>
+<div class="relative group">
+<input class="w-full h-14 px-4 rounded-lg bg-surface-container-high border-none focus:ring-0 focus:bg-surface-container-lowest transition-all duration-300 font-body text-body-md text-on-surface placeholder:text-outline" id="identity" placeholder="admin@libtrack.com" type="text"/>
+<div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-focus-within:w-full"></div>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block font-label text-label-md font-bold text-on-surface-variant uppercase tracking-widest" for="password">
+                                Password
+                            </label>
+</div>
+<div class="relative group">
+<input class="w-full h-14 px-4 rounded-lg bg-surface-container-high border-none focus:ring-0 focus:bg-surface-container-lowest transition-all duration-300 font-body text-body-md text-on-surface placeholder:text-outline" id="password" placeholder="••••••••" type="password"/>
+<div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-focus-within:w-full"></div>
+</div>
+</div>
+</div>
+<!-- Primary CTA -->
+<button class="w-full h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+                    Login
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Actions -->
+<div class="text-center">
+<button class="text-primary font-label text-label-md font-bold hover:underline transition-all">
+                        Forgot Password?
+                    </button>
+</div>
+</div>
+<!-- Decorative Element (Asymmetry Rule) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-6 flex items-center gap-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<div>
+<h3 class="font-headline text-on-surface text-sm font-bold">Administrator Portal</h3>
+<p class="font-body text-on-surface-variant text-xs">Secure endpoint for library staff and curators.</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-9xl" data-icon="shield">shield</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar suppressed for Login per "Destination Rule" -->
+</body></html>

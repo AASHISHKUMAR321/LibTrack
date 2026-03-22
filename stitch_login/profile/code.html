@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LibTrack — Profile &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f3f3",
+              "tertiary-container": "#db322f",
+              "on-secondary-fixed": "#002204",
+              "on-tertiary-fixed": "#410002",
+              "on-tertiary-container": "#fffbff",
+              "inverse-primary": "#a2c9ff",
+              "surface-container": "#eeeeee",
+              "on-primary": "#ffffff",
+              "secondary": "#006e1c",
+              "surface": "#f9f9f9",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "primary-fixed-dim": "#a2c9ff",
+              "on-primary-fixed-variant": "#004881",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#fdfcff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#98f994",
+              "on-secondary-container": "#0c7521",
+              "outline-variant": "#c0c7d4",
+              "background": "#f9f9f9",
+              "on-surface": "#1a1c1c",
+              "on-primary-fixed": "#001c38",
+              "on-surface-variant": "#404752",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#005313",
+              "surface-container-high": "#e8e8e8",
+              "primary": "#005ea4",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#93000d",
+              "primary-container": "#0077ce",
+              "primary-fixed": "#d3e4ff",
+              "on-error": "#ffffff",
+              "surface-tint": "#0060a8",
+              "secondary-fixed-dim": "#7ddc7a",
+              "on-background": "#1a1c1c",
+              "surface-bright": "#f9f9f9",
+              "inverse-on-surface": "#f1f1f1",
+              "outline": "#707783",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "tertiary-fixed": "#ffdad6",
+              "tertiary": "#b7131a",
+              "surface-dim": "#dadada",
+              "secondary-container": "#98f994",
+              "surface-container-highest": "#e2e2e2"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-6 py-4 mx-auto max-w-5xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-700" data-icon="menu">menu</span>
+<h1 class="font-manrope font-extrabold text-2xl bg-gradient-to-br from-blue-700 to-blue-500 bg-clip-text text-transparent">LibTrack</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border-2 border-white">
+<img alt="Admin profile picture" class="w-full h-full object-cover" data-alt="Professional portrait of a male library administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDInrSsQw-dWvU5VvNMrVqyz2L6EaMGUaOcSsQZ7lIBQN2EDGgKz7l1sYMlYW2lHwxNyHCaY4uwKmF4YTPLP8ifhLFo1BPCHkd8fJqsSfMHe1IlOrZ52GntQSSJDWFo7jMIcRxa-qP0d6zzlqu8ZUPdSO3Dv6UjXyPq99GBSBjNYe4HVZKmEeeWgP8pJkh-_PIwYDG3Iir8hmfTDPYDaTpxD2nhwAP8SDFKBEZ-d9kV0hnNza3WByXSQmAujTHqN8O4xSmhwBGobXs"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto min-h-screen">
+<!-- Minimalist Hero Profile -->
+<section class="mb-12 text-center">
+<div class="relative inline-block mb-6">
+<div class="w-28 h-28 rounded-xl overflow-hidden shadow-2xl mx-auto rotate-3">
+<img alt="Alexander Sterling" class="w-full h-full object-cover" data-alt="Modern close up portrait of administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8CbZbg67nWjrc-MN-KoZCPUK1ARA-VieecNTxsG95DIYxdMNuMz3kxA8std5ftPg5_XsWb1zzuagLRUgJSJGo5a2JOitIijgLQbSFBgniYgETUCYmXplCt9G63b7g7HEd_VZ-mzg0tzOMAgOG2DqYltebWuFqr_OYzD2yGejrFli5LQjNM3Rbdm28tq3-9-uBSwPbN1zJzLM98DRZwUUcUN4KkCRlb03W18huXtUt1O-L7QthFQ9bSIjekf98_mziVTdI5cTiuN8"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">
+                    Verified
+                </div>
+</div>
+<h2 class="font-headline font-bold text-3xl tracking-tight text-on-surface">Alexander Sterling</h2>
+<p class="font-body text-on-surface-variant font-medium mt-1">Chief Librarian at Metropolitan Archive</p>
+</section>
+<!-- Bento Grid Stats (Intentional Asymmetry) -->
+<div class="grid grid-cols-2 gap-4 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-xl col-span-1">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Total Books</p>
+<p class="font-headline font-extrabold text-2xl text-primary">12,482</p>
+</div>
+<div class="bg-primary p-6 rounded-xl col-span-1 text-on-primary flex flex-col justify-between">
+<p class="font-label text-[10px] uppercase tracking-widest opacity-80 font-bold">Account Level</p>
+<p class="font-headline font-bold text-xl">Premium Elite</p>
+</div>
+</div>
+<!-- List Menu Options -->
+<div class="space-y-4">
+<h3 class="font-label text-[11px] uppercase tracking-[0.15em] text-on-surface-variant font-bold ml-2 mb-4">Account Management</h3>
+<a class="group flex items-center justify-between p-5 bg-surface-container-lowest rounded-xl hover:bg-white transition-all active:scale-[0.98]" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="font-body font-semibold text-on-surface">Manage Plans</p>
+<p class="text-xs text-on-surface-variant">Update billing and subscription</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="group flex items-center justify-between p-5 bg-surface-container-lowest rounded-xl hover:bg-white transition-all active:scale-[0.98]" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+<div>
+<p class="font-body font-semibold text-on-surface">Notifications</p>
+<p class="text-xs text-on-surface-variant">Manage alerts and emails</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<a class="group flex items-center justify-between p-5 bg-surface-container-lowest rounded-xl hover:bg-white transition-all active:scale-[0.98]" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</div>
+<div>
+<p class="font-body font-semibold text-on-surface">Settings</p>
+<p class="text-xs text-on-surface-variant">App preferences and security</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</a>
+<!-- Separator using spacing not lines -->
+<div class="py-4"></div>
+<button class="w-full group flex items-center justify-between p-5 bg-tertiary/5 rounded-xl hover:bg-tertiary/10 transition-all active:scale-[0.98]">
+<div class="flex items-center gap-4 text-tertiary">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</div>
+<p class="font-body font-bold">Logout</p>
+</div>
+<span class="text-xs font-bold text-tertiary uppercase tracking-widest opacity-60">Version 2.4.0</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center h-20 bg-white/80 backdrop-blur-2xl w-[90%] max-w-md mx-auto rounded-[2rem] px-4 shadow-[0px_4px_20px_rgba(26,28,28,0.06)]">
+<!-- Dashboard (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Dashboard</span>
+</a>
+<!-- Students (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Students</span>
+</a>
+<!-- Attendance (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Attendance</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-2xl px-5 py-2 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

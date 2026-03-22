@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LibTrack — Add Student</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f3f3",
+              "tertiary-container": "#db322f",
+              "on-secondary-fixed": "#002204",
+              "on-tertiary-fixed": "#410002",
+              "on-tertiary-container": "#fffbff",
+              "inverse-primary": "#a2c9ff",
+              "surface-container": "#eeeeee",
+              "on-primary": "#ffffff",
+              "secondary": "#006e1c",
+              "surface": "#f9f9f9",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "primary-fixed-dim": "#a2c9ff",
+              "on-primary-fixed-variant": "#004881",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#fdfcff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#98f994",
+              "on-secondary-container": "#0c7521",
+              "outline-variant": "#c0c7d4",
+              "background": "#f9f9f9",
+              "on-surface": "#1a1c1c",
+              "on-primary-fixed": "#001c38",
+              "on-surface-variant": "#404752",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#005313",
+              "surface-container-high": "#e8e8e8",
+              "primary": "#005ea4",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#93000d",
+              "primary-container": "#0077ce",
+              "primary-fixed": "#d3e4ff",
+              "on-error": "#ffffff",
+              "surface-tint": "#0060a8",
+              "secondary-fixed-dim": "#7ddc7a",
+              "on-background": "#1a1c1c",
+              "surface-bright": "#f9f9f9",
+              "inverse-on-surface": "#f1f1f1",
+              "outline": "#707783",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "tertiary-fixed": "#ffdad6",
+              "tertiary": "#b7131a",
+              "surface-dim": "#dadada",
+              "secondary-container": "#98f994",
+              "surface-container-highest": "#e2e2e2"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-6 py-4 mx-auto">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-200/50 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-blue-700">arrow_back</span>
+</button>
+<h1 class="font-manrope font-extrabold text-2xl bg-gradient-to-br from-blue-700 to-blue-500 bg-clip-text text-transparent">LibTrack</h1>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Admin profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARrVP7dVjEyiYVI7u4Jr6wVrfX9l_JmiuNzwcq_diNy8NUYGZqHlz24ZHpht1--jCXp40QXn16JLGDBQt4p2NC01ZV1om0uDo9ppUAhogTkGVrCgF1mHUS3ezu3sL12wnDiAwAzSFJpbtWD6XcVX-2DQSnK3kquwvWs__fnoxV8hzBaXGJKuTeAc8S_ay_Yv2CyjqS_dEdgKu1LCp0skVn_2YQnpB8PQ_8F4wJStdSzvvL4el7Q2SPJLCeU10RXZP_IM6jAVlph7o"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Editorial Header Section -->
+<section class="mb-10">
+<span class="font-label text-[10px] font-semibold uppercase tracking-[0.15em] text-on-surface-variant mb-2 block">Registration Portal</span>
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface">Add New Student</h2>
+<p class="text-on-surface-variant mt-2 max-w-md font-body text-body-md">Onboard a new member to the digital collection system. Ensure all details match the physical ID for archival accuracy.</p>
+</section>
+<!-- Form Canvas (Bento-inspired asymmetric layout) -->
+<form class="space-y-8">
+<!-- Personal Information Group -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-12 p-6 rounded-xl bg-surface-container-lowest transition-all">
+<div class="mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">person</span>
+<h3 class="font-headline text-lg font-bold">Personal Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Full Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Full Name</label>
+<input class="w-full h-14 px-4 rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary placeholder:text-outline" placeholder="e.g. Julian Casablancas" type="text"/>
+</div>
+<!-- Phone -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Phone Number</label>
+<input class="w-full h-14 px-4 rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary placeholder:text-outline" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<!-- Email -->
+<div class="md:col-span-2 flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Email Address</label>
+<input class="w-full h-14 px-4 rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary placeholder:text-outline" placeholder="student@university.edu" type="email"/>
+</div>
+<!-- Address -->
+<div class="md:col-span-2 flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Residential Address</label>
+<textarea class="w-full p-4 rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary placeholder:text-outline resize-none" placeholder="Street, Building, Apartment..." rows="2"></textarea>
+</div>
+</div>
+</div>
+<!-- Membership Group -->
+<div class="md:col-span-12 p-6 rounded-xl bg-surface-container-lowest transition-all">
+<div class="mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">card_membership</span>
+<h3 class="font-headline text-lg font-bold">Membership Details</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+<!-- Membership Plan -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Membership Plan</label>
+<div class="relative">
+<select class="w-full h-14 px-4 appearance-none rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary text-on-surface">
+<option disabled="" selected="" value="">Select a plan...</option>
+<option value="basic">Basic Tier — Access Only</option>
+<option value="scholar">Scholar Tier — Premium Borrowing</option>
+<option value="fellow">Research Fellow — Unlimited</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Dates -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Start Date</label>
+<input class="w-full h-14 px-4 rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary" type="date"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">End Date</label>
+<input class="w-full h-14 px-4 rounded-xl bg-surface-container-high border-none focus:bg-surface-container-lowest focus:ring-0 transition-all border-b-2 border-transparent focus:border-primary" type="date"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col gap-4 mt-4">
+<button class="group relative w-full h-16 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center gap-3 overflow-hidden shadow-sm active:scale-[0.98] transition-all" type="button">
+<span class="font-headline font-bold text-lg text-white">Add Student</span>
+<span class="material-symbols-outlined text-white group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Success Message Placeholder (hidden or visible) -->
+<div class="flex items-center justify-center gap-2 p-4 rounded-xl bg-secondary-container text-on-secondary-container border border-secondary-container/20">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label text-sm font-bold tracking-tight">Student added successfully</span>
+</div>
+</div>
+</form>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center h-20 bg-white/80 backdrop-blur-2xl w-[90%] max-w-md mx-auto rounded-[2rem] shadow-[0px_4px_20px_rgba(26,28,28,0.06)] px-4">
+<!-- Dashboard Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Dashboard</span>
+</a>
+<!-- Students Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-2xl px-5 py-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Students</span>
+</a>
+<!-- Attendance Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Attendance</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

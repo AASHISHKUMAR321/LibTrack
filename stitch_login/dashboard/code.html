@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LibTrack Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary-container": "#db322f",
+                        "on-secondary-fixed": "#002204",
+                        "on-tertiary-fixed": "#410002",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#a2c9ff",
+                        "surface-container": "#eeeeee",
+                        "on-primary": "#ffffff",
+                        "secondary": "#006e1c",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "on-primary-fixed-variant": "#004881",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#fdfcff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#98f994",
+                        "on-secondary-container": "#0c7521",
+                        "outline-variant": "#c0c7d4",
+                        "background": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-primary-fixed": "#001c38",
+                        "on-surface-variant": "#404752",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#005313",
+                        "surface-container-high": "#e8e8e8",
+                        "primary": "#005ea4",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#93000d",
+                        "primary-container": "#0077ce",
+                        "primary-fixed": "#d3e4ff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#0060a8",
+                        "secondary-fixed-dim": "#7ddc7a",
+                        "on-background": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f1f1f1",
+                        "outline": "#707783",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-fixed": "#ffdad6",
+                        "tertiary": "#b7131a",
+                        "surface-dim": "#dadada",
+                        "secondary-container": "#98f994",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-6 py-4 mx-auto max-w-7xl">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-blue-700 dark:text-blue-400 p-2 rounded-full hover:bg-slate-200/50 transition-colors" data-icon="menu">menu</button>
+<h1 class="font-manrope font-extrabold text-2xl bg-gradient-to-br from-blue-700 to-blue-500 bg-clip-text text-transparent">LibTrack</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex flex-col items-end mr-2">
+<span class="text-on-surface font-bold text-sm">Admin</span>
+<span class="text-on-surface-variant text-xs">Library Manager</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Admin profile picture" class="w-full h-full object-cover" data-alt="Professional library administrator profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2F6PaCO4exGDgBjtk74gmG72r1NpH3G2QmOan9FtT9sQY383CjZrJwlMnfsPQlujF4bg4t72nYP7Ki1w0IgS3WDfrWDK2kNtc3I6hn59_1NegA5pwvOr55R6__zn9oBtaaYucvE6JFCWx9YLU1BvvY5KIyskNilIi9oQ7oxi6u0ErsUeDcKML8fSZ9YbzdMPQtB5cDvoSEhqqeMfB4HDWcsfRl0gxg4xvStKM6w37QLXjYK0vy9MDsRDxEkDpLC9a2wn4Vu05jo8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto space-y-12">
+<!-- Welcome Section -->
+<section class="space-y-2">
+<h2 class="font-headline text-3xl md:text-5xl font-extrabold text-on-surface tracking-tight">
+                Good Morning, Admin 👋
+            </h2>
+<p class="text-on-surface-variant font-body text-base md:text-lg opacity-80">
+                Here is what's happening in your library today.
+            </p>
+</section>
+<!-- Summary Bento Grid -->
+<section class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Total Students -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(26,28,28,0.06)] group hover:scale-[1.02] transition-transform duration-300">
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Total Students</p>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface">1,284</h3>
+</div>
+</div>
+</div>
+<!-- Card 2: Active Today -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(26,28,28,0.06)] group hover:scale-[1.02] transition-transform duration-300">
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="event_available">event_available</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Active Today</p>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface">412</h3>
+</div>
+</div>
+</div>
+<!-- Card 3: Checked In Now -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(26,28,28,0.06)] group hover:scale-[1.02] transition-transform duration-300">
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="login" style="font-variation-settings: 'FILL' 1;">login</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Checked In Now</p>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface">87</h3>
+</div>
+</div>
+</div>
+<!-- Card 4: Expired Memberships -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_20px_rgba(26,28,28,0.06)] group hover:scale-[1.02] transition-transform duration-300">
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="notification_important">notification_important</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Expired Memberships</p>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface">14</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Layout (Asymmetric) -->
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Left Side: Recent Activity -->
+<section class="lg:w-2/3 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline text-2xl font-bold text-on-surface">Recent Activity</h3>
+<button class="text-primary font-body text-sm font-semibold hover:underline">View All</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(26,28,28,0.06)]">
+<div class="divide-y divide-surface-container">
+<!-- Activity Item 1 -->
+<div class="p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body text-sm font-bold text-on-surface">Arjun Sharma</p>
+<p class="font-body text-xs text-on-surface-variant">Student ID: #22941</p>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Checked In</span>
+<p class="text-xs text-on-surface-variant mt-1">09:42 AM</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body text-sm font-bold text-on-surface">Priya Verma</p>
+<p class="font-body text-xs text-on-surface-variant">Student ID: #21082</p>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Checked Out</span>
+<p class="text-xs text-on-surface-variant mt-1">09:38 AM</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body text-sm font-bold text-on-surface">Rahul Kapoor</p>
+<p class="font-body text-xs text-on-surface-variant">Student ID: #23554</p>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Checked In</span>
+<p class="text-xs text-on-surface-variant mt-1">09:15 AM</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body text-sm font-bold text-on-surface">Sanya Malhotra</p>
+<p class="font-body text-xs text-on-surface-variant">Student ID: #20993</p>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Checked In</span>
+<p class="text-xs text-on-surface-variant mt-1">08:55 AM</p>
+</div>
+</div>
+<!-- Activity Item 5 -->
+<div class="p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body text-sm font-bold text-on-surface">Aman Gupta</p>
+<p class="font-body text-xs text-on-surface-variant">Student ID: #22410</p>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Checked Out</span>
+<p class="text-xs text-on-surface-variant mt-1">08:42 AM</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Quick Insight -->
+<aside class="lg:w-1/3 space-y-6">
+<h3 class="font-headline text-2xl font-bold text-on-surface">Occupancy</h3>
+<div class="bg-primary p-8 rounded-xl text-on-primary relative overflow-hidden shadow-lg">
+<!-- Background Pattern -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="relative z-10 space-y-6">
+<div class="flex items-center justify-between">
+<p class="font-body text-sm opacity-90">Peak Capacity</p>
+<span class="font-bold">68%</span>
+</div>
+<!-- Progress Gauge Style -->
+<div class="h-4 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-[68%] rounded-full"></div>
+</div>
+<div class="space-y-4 pt-2">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary-fixed"></div>
+<p class="text-xs opacity-80">Reading Hall A: 42/60 seats</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-white/40"></div>
+<p class="text-xs opacity-80">Study Lounge: 15/40 seats</p>
+</div>
+</div>
+<button class="w-full py-3 bg-white text-primary font-bold rounded-lg text-sm transition-transform active:scale-95">
+                            Generate Report
+                        </button>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl space-y-4">
+<p class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">System Status</p>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<p class="text-sm font-medium text-on-surface">Gate Server Online</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<p class="text-sm font-medium text-on-surface">RFID Scanner Ready</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl w-[90%] max-w-md mx-auto rounded-[2rem] px-4 shadow-[0px_4px_20px_rgba(26,28,28,0.06)] border-none">
+<!-- Dashboard Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-2xl px-5 py-2 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Dashboard</span>
+</a>
+<!-- Students Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Students</span>
+</a>
+<!-- Attendance Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Attendance</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

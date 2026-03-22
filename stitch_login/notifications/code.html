@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#006e1c",
+              "on-primary-container": "#fdfcff",
+              "inverse-primary": "#a2c9ff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#0060a8",
+              "on-secondary-container": "#0c7521",
+              "inverse-on-surface": "#f1f1f1",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "surface-container-low": "#f3f3f3",
+              "on-secondary-fixed": "#002204",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#a2c9ff",
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#b7131a",
+              "secondary-container": "#98f994",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dadada",
+              "surface-container-high": "#e8e8e8",
+              "surface-container": "#eeeeee",
+              "secondary-fixed": "#98f994",
+              "primary-fixed": "#d3e4ff",
+              "secondary-fixed-dim": "#7ddc7a",
+              "tertiary-fixed": "#ffdad6",
+              "outline-variant": "#c0c7d4",
+              "on-primary": "#ffffff",
+              "on-background": "#1a1c1c",
+              "background": "#f9f9f9",
+              "surface": "#f9f9f9",
+              "on-tertiary-fixed-variant": "#93000d",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "on-surface": "#1a1c1c",
+              "surface-variant": "#e2e2e2",
+              "on-primary-fixed": "#001c38",
+              "surface-container-highest": "#e2e2e2",
+              "tertiary-container": "#db322f",
+              "on-error": "#ffffff",
+              "outline": "#707783",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#410002",
+              "on-primary-fixed-variant": "#004881",
+              "surface-bright": "#f9f9f9",
+              "primary-container": "#0077ce",
+              "on-surface-variant": "#404752",
+              "primary": "#005ea4",
+              "on-secondary-fixed-variant": "#005313"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-line { border: none !important; }
+        .tonal-shift { transition: background-color 0.3s ease; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-[#f9f9f9]/80 backdrop-blur-xl shadow-sm">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-[#1E88E5] active:scale-95 duration-200">account_circle</button>
+<h1 class="font-manrope font-extrabold text-[#1E88E5] tracking-tighter text-lg">LibTrack</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-[#1E88E5] active:scale-95 duration-200">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full border-2 border-background"></span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto px-6 pt-8 space-y-8">
+<!-- Header Section -->
+<div class="flex items-end justify-between">
+<div class="space-y-1">
+<p class="font-label text-xs uppercase tracking-[0.15em] text-on-surface-variant font-bold">Activity Feed</p>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight">Notifications</h2>
+</div>
+<button class="font-label text-xs font-bold text-primary px-4 py-2 rounded-full bg-primary-fixed/30 hover:bg-primary-fixed/50 transition-colors uppercase tracking-wider">
+                Mark all as read
+            </button>
+</div>
+<!-- Featured Alert / Critical -->
+<div class="relative group overflow-hidden rounded-3xl bg-tertiary-container/10 p-1">
+<div class="bg-surface-container-lowest rounded-[1.25rem] p-6 flex gap-4 items-start border-l-4 border-tertiary">
+<div class="bg-tertiary/10 p-3 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-on-surface">Membership Expiry</h3>
+<span class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Urgent</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">Your membership expires in 3 days. Renew now to avoid any disruption in library access.</p>
+<button class="text-xs font-bold text-tertiary flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Renew Membership <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notifications List -->
+<div class="space-y-6">
+<!-- Category Header -->
+<div class="flex items-center gap-4 px-2">
+<span class="h-[1px] flex-1 bg-surface-container-high"></span>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Recent Updates</span>
+<span class="h-[1px] flex-1 bg-surface-container-high"></span>
+</div>
+<!-- List Items (Bento-style Cards) -->
+<div class="grid gap-4">
+<!-- Check-in Success -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 flex items-center gap-4 hover:bg-surface-container-low transition-colors duration-300">
+<div class="bg-secondary-container p-3 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="font-body font-bold text-on-surface text-sm">Check-in successful</p>
+<p class="text-on-surface-variant text-xs mt-0.5">Verified at 09:15 AM • Central Hub</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+</div>
+<!-- Library Notice -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 flex items-center gap-4 hover:bg-surface-container-low transition-colors duration-300">
+<div class="bg-surface-container p-3 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div class="flex-1">
+<p class="font-body font-bold text-on-surface text-sm">Holiday Hours Notice</p>
+<p class="text-on-surface-variant text-xs mt-0.5">Library will be closed this Sunday for maintenance.</p>
+</div>
+</div>
+<!-- Book Ready -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 flex items-center gap-4 hover:bg-surface-container-low transition-colors duration-300">
+<div class="bg-primary-fixed p-3 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div class="flex-1">
+<p class="font-body font-bold text-on-surface text-sm">Reservation Ready</p>
+<p class="text-on-surface-variant text-xs mt-0.5">'Digital Curator' is available for pickup at Desk 4.</p>
+</div>
+</div>
+<!-- Overdue Warning -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 flex items-center gap-4 hover:bg-surface-container-low transition-colors duration-300">
+<div class="bg-tertiary-container/20 p-3 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">error</span>
+</div>
+<div class="flex-1">
+<p class="font-body font-bold text-on-surface text-sm">Item Overdue</p>
+<p class="text-on-surface-variant text-xs mt-0.5">'Modern Architecture' was due yesterday.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- System Message -->
+<div class="bg-surface-container p-6 rounded-3xl text-center space-y-2">
+<span class="material-symbols-outlined text-outline-variant text-4xl">inventory_2</span>
+<p class="font-headline font-bold text-on-surface-variant text-sm">No more notifications</p>
+<p class="font-label text-[10px] text-outline uppercase tracking-wider">Stay tuned for future updates</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f9f9f9]/80 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0px_-4px_20px_rgba(26,28,28,0.06)]">
+<div class="flex flex-col items-center justify-center text-[#404752] px-4 py-2 hover:text-[#1E88E5] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#404752] px-4 py-2 hover:text-[#1E88E5] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-100 text-[#1E88E5] rounded-2xl px-4 py-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#404752] px-4 py-2 hover:text-[#1E88E5] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

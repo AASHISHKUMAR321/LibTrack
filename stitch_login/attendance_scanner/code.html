@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LibTrack QR Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#006e1c",
+              "on-primary-container": "#fdfcff",
+              "inverse-primary": "#a2c9ff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#0060a8",
+              "on-secondary-container": "#0c7521",
+              "inverse-on-surface": "#f1f1f1",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "surface-container-low": "#f3f3f3",
+              "on-secondary-fixed": "#002204",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#a2c9ff",
+              "on-tertiary-container": "#fffbff",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#b7131a",
+              "secondary-container": "#98f994",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dadada",
+              "surface-container-high": "#e8e8e8",
+              "surface-container": "#eeeeee",
+              "secondary-fixed": "#98f994",
+              "primary-fixed": "#d3e4ff",
+              "secondary-fixed-dim": "#7ddc7a",
+              "tertiary-fixed": "#ffdad6",
+              "outline-variant": "#c0c7d4",
+              "on-primary": "#ffffff",
+              "on-background": "#1a1c1c",
+              "background": "#f9f9f9",
+              "surface": "#f9f9f9",
+              "on-tertiary-fixed-variant": "#93000d",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "on-surface": "#1a1c1c",
+              "surface-variant": "#e2e2e2",
+              "on-primary-fixed": "#001c38",
+              "surface-container-highest": "#e2e2e2",
+              "tertiary-container": "#db322f",
+              "on-error": "#ffffff",
+              "outline": "#707783",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#410002",
+              "on-primary-fixed-variant": "#004881",
+              "surface-bright": "#f9f9f9",
+              "primary-container": "#0077ce",
+              "on-surface-variant": "#404752",
+              "primary": "#005ea4",
+              "on-secondary-fixed-variant": "#005313"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanner-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+        }
+        .scanner-frame {
+            box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-surface antialiased overflow-hidden">
+<!-- Top Navigation Shell (Suppressed for focused task, but Brand Header remains fixed for ID) -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-blue-50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#1E88E5]">arrow_back</span>
+</button>
+<h1 class="font-manrope font-extrabold text-[#1E88E5] tracking-tighter text-lg">LibTrack</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-blue-50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#1E88E5]">flashlight_on</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Viewfinder Canvas -->
+<main class="relative h-screen w-full bg-on-background flex flex-col items-center justify-center overflow-hidden">
+<!-- Mock Viewfinder Image -->
+<img alt="Library Interior View" class="absolute inset-0 w-full h-full object-cover opacity-80 scale-110" data-alt="Modern library interior seen through camera lens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS3fYbilA7zCXhmIzzf6sYHVqk6KffShZC9SzSh_RtFEd-8rsrqUu5srsuUoOzkyKPcov6aUNQiFv3cwqANBUkGUrB6PdZ83qryb33D4cSMxQhqVoAMAXqtIrRhMTOiSH7ysuUlqmsNT5UvEpJW4Cy7KesnTgr5q3sI-Q-IJvBdtCx-07Jj5pO1UBworFfWQpyADfamaAimF8UQgpBmwc0efAH2X1F2008fM0-OutkZtnMQRZr-K4FZc7EfP-2fYgXudzn0bsy_Fc"/>
+<!-- Scanning UI Overlay -->
+<div class="relative z-10 flex flex-col items-center justify-center w-full h-full">
+<!-- Target Frame -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 scanner-frame rounded-[2rem] border-2 border-primary-container/30">
+<!-- Corner Accents -->
+<div class="absolute -top-2 -left-2 w-10 h-10 border-t-4 border-l-4 border-primary-container rounded-tl-2xl"></div>
+<div class="absolute -top-2 -right-2 w-10 h-10 border-t-4 border-r-4 border-primary-container rounded-tr-2xl"></div>
+<div class="absolute -bottom-2 -left-2 w-10 h-10 border-b-4 border-l-4 border-primary-container rounded-bl-2xl"></div>
+<div class="absolute -bottom-2 -right-2 w-10 h-10 border-b-4 border-r-4 border-primary-container rounded-br-2xl"></div>
+<!-- Scanning Line -->
+<div class="absolute left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-primary-container to-transparent animate-pulse top-1/2 -translate-y-1/2"></div>
+</div>
+<!-- Instruction Text -->
+<div class="mt-12 px-10 text-center space-y-3 max-w-sm">
+<p class="text-on-primary-container font-headline font-bold text-lg leading-tight tracking-tight">
+                    Align the library QR code within the frame to check in/out
+                </p>
+<p class="text-primary-fixed-dim text-[10px] font-label uppercase tracking-[0.15em] font-semibold opacity-80">
+                    Auto-detection active
+                </p>
+</div>
+<!-- Action Controls -->
+<div class="absolute bottom-32 flex items-center gap-8">
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-high/20 backdrop-blur-md flex items-center justify-center border border-outline-variant/20 group-hover:bg-primary/20 transition-all duration-300">
+<span class="material-symbols-outlined text-on-primary-container text-2xl">close</span>
+</div>
+<span class="text-[10px] text-on-primary-container font-label uppercase tracking-widest font-semibold">Cancel</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-20 h-20 rounded-full bg-gradient-to-tr from-primary to-primary-container p-1 shadow-lg active:scale-90 transition-transform">
+<div class="w-full h-full rounded-full bg-transparent border-4 border-on-primary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+</div>
+</div>
+<span class="text-[10px] text-on-primary-container font-label uppercase tracking-widest font-bold">Scanning...</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-surface-container-high/20 backdrop-blur-md flex items-center justify-center border border-outline-variant/20 group-hover:bg-primary/20 transition-all duration-300">
+<span class="material-symbols-outlined text-on-primary-container text-2xl">history</span>
+</div>
+<span class="text-[10px] text-on-primary-container font-label uppercase tracking-widest font-semibold">Log</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Contextual Information Card (Editorial Style) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-xs z-50">
+<div class="bg-surface-container-lowest/10 backdrop-blur-xl border border-outline-variant/10 p-4 rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">info</span>
+</div>
+<div class="flex-1">
+<h4 class="text-white text-xs font-headline font-bold">Quick Check-in</h4>
+<p class="text-on-primary-container/70 text-[10px] font-body leading-relaxed">Present your unique library ID code found at the entry kiosk.</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell (Consistent with Shared JSON Mapping for "Scan") -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f9f9f9]/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0px_-4px_20px_rgba(26,28,28,0.06)]">
+<a class="flex flex-col items-center justify-center text-[#404752] dark:text-slate-400 px-4 py-2 hover:text-[#1E88E5] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-[#1E88E5] dark:text-blue-200 rounded-2xl px-4 py-2 hover:text-[#1E88E5] transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#404752] dark:text-slate-400 px-4 py-2 hover:text-[#1E88E5] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#404752] dark:text-slate-400 px-4 py-2 hover:text-[#1E88E5] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
